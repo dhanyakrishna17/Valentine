@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffd6e8, #fff3c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Georgia, serif;
+    }
+
+    .val-card {
+      background: #fffaf2;
+      border-radius: 25px;
+      padding: 35px 25px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      text-align: center;
+      color: #7a1f3d;
+      position: relative;
+    }
+
+    .corner {
+      position: absolute;
+      width: 80px;
+    }
+
+    .corner.left {
+      top: -10px;
+      left: -10px;
+    }
+
+    .corner.right {
+      bottom: -10px;
+      right: -10px;
+    }
+
+    .kitten {
+      width: 120px;
+      margin: 15px auto;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .val-btn {
+      background: #8b1538;
+      color: white;
+      border-radius: 30px;
+      padding: 12px 28px;
+      border: none;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .val-btn.no {
+      background: #444;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="val-card" id="content">
+    <img class="corner left" src="https://i.imgur.com/3mZ7R8H.png">
+    <img class="corner right" src="https://i.imgur.com/dxXKJ7x.png">
+
+    <img class="kitten" src="https://i.imgur.com/0DElr0H.png">
+
+    <h2>Hey!</h2>
+    <p>I made something for you</p>
+    <p>Do you want to see?</p>
+
+    <button class="val-btn" onclick="start()">YES</button>
+    <button class="val-btn no" onclick="cuteNo()">NO</button>
+  </div>
+
+  <script>
+    const content = document.getElementById("content");
+
+    function cuteNo() {
+      content.innerHTML = `
+        <img class="kitten" src="https://i.imgur.com/JUqkK1R.png">
+        <p>Excuse me?? 😭</p>
+        <p>Please click YES properly.</p>
+        <button class="val-btn" onclick="start()">OKAY OKAY</button>
+      `;
+    }
+
+    function start() {
+      step1();
+    }
+
+    function step1() {
+      content.innerHTML = `
+        <img class="kitten" src="https://i.imgur.com/5cX1E1G.png">
+        <p>Are you smiling right now? 😼</p>
+        <button class="val-btn" onclick="step2()">YES</button>
+        <button class="val-btn no" onclick="nope()">NO</button>
+      `;
+    }
+
+    function step2() {
+      content.innerHTML = `
+        <img class="kitten" src="https://i.imgur.com/8p0JZ9B.png">
+        <p>Do you know how special you are to me? 💗</p>
+        <button class="val-btn" onclick="valentine()">YES</button>
+        <button class="val-btn no" onclick="nope()">NO</button>
+      `;
+    }
+
+    function nope() {
+      content.innerHTML = `
+        <img class="kitten" src="https://i.imgur.com/6RLcBqv.png">
+        <p>Ayyo no no no 😤</p>
+        <p>Think again properly.</p>
+        <button class="val-btn" onclick="step2()">OKAY</button>
+      `;
+    }
+
+    function valentine() {
+      content.innerHTML = `
+        <img class="kitten" src="https://i.imgur.com/4AiXzf8.png">
+        <h2>So...</h2>
+        <p>Will you be my Valentine? 💘</p>
+        <button class="val-btn" onclick="yes()">YESSS 💖</button>
+        <button class="val-btn no" onclick="runAway()">NO</button>
+      `;
+    }
+
+    function runAway() {
+      const btn = event.target;
+      btn.style.position = "absolute";
+      btn.style.left = Math.random() * 80 + "%";
+      btn.style.top = Math.random() * 80 + "%";
+    }
+
+    function yes() {
+      content.innerHTML = `
+        <img class="kitten" src="https://i.imgur.com/7JHcZ0M.png">
+        <h2>YAYYYY 🥹💖</h2>
+        <p>You just made my heart very very happy.</p>
+        <p>Happy Valentine’s Day 😽🌹</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
